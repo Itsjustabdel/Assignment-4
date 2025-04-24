@@ -2,7 +2,10 @@
 
 2.) makeblastdb -in database_mystery_proteins.fasta -dbtype prot -out mystery_proteins_db
 
-3.) blastn -query mystery_nucleotide_query.fasta -db mystery_transcripts_db -evalue 1e-3 -max_target_seqs 5 -outfmt 7 -out nucleotide_hits.txt
+3.) 
+XM_027409938.1
+XM_027409940.1
+XM_018548221.1
 
 4.) awk -F'\t' '$3 >= 90 {print $2}' nucleotide_hits.txt > most_similar.txt
 
@@ -10,7 +13,8 @@
 
 6.) blastp -query mystery_protein_query.fasta -db mystery_proteins_db -evalue 1e-5 -max_target_seqs 15 -outfmt 7 -out protein_hits.txt
 
-7.) awk 'BEGIN {bestE=1} !/^#/ {if ($11 < bestE) {bestE=$11; bestID=$2}} END {print bestID}' nucleotide_hits.txt
+7.) 
+XM_027409938.1
 
 8.) Coffea arabica
 
